@@ -18,8 +18,11 @@ if(isset($_POST['group4'])){
     $_SESSION['type']=$type;
     echo "<br>You are logged in as a ";
    if($type=='user') echo "User";
-   else if($type=='guest') echo "Guest";
    else if($type=='admin') echo "Admin";
+}else{
+    $type='guest';
+    $_SESSION['type']=$type;
+    echo "<br>You are logged in as a Guest";
 }
 
 if(isset($_POST['remember-me'])){
