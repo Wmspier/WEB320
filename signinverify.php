@@ -20,9 +20,11 @@ if(isset($_POST['type'])){
     $_SESSION['type']=$type;
    if($type=='user') 
    {
-	$sql = "SELECT fn,ln FROM Users WHERE fn='$Email' AND ln='$PW'";
+	$sql = "SELECT email FROM Users WHERE email='$Email'";
+	$sql2= "SELECT pass from AccountCredentials WHERE pass='$PW'";   
 	$result= $con->query($sql);
-        if($result->num_rows == 0)
+	$result2= $con->query($sql2);
+		if($result->num_rows == 0 && $result2->num_rows == 0)
 		{
 			echo 'Invalid username or password<br>';
 			echo '<form action="signin.html">
@@ -40,9 +42,11 @@ if(isset($_POST['type'])){
 	}
 	else if($type=='admin') 
 	{
-	$sql = "SELECT fn,ln FROM Admin WHERE fn='$Email' AND ln='$PW'";
+	$sql = "SELECT email FROM Admin WHERE email='$Email'";
+	$sql2= "SELECT pass from AccountCredentials WHERE pass='$PW'";
 	$result= $con->query($sql);
-        if($result->num_rows == 0)
+	$result2= $con->query($sql2);
+        if($result->num_rows == 0 && $result2->num_rows == 0)
 		{
 			echo 'Invalid username or password<br>';
 			echo '<form action="signin.html">
