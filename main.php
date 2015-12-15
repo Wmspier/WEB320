@@ -7,6 +7,9 @@ if(isset($_SESSION['fn'])){
 if(isset($_SESSION['ln'])){
     $LN = $_SESSION['ln'];
 }
+if(isset($_SESSION['type'])){
+    $Type = $_SESSION['type'];
+}
 
 $html1=<<<HTML1
     <!DOCTYPE html>
@@ -52,7 +55,18 @@ $html1=<<<HTML1
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Hello $FN $LN!</a>
+HTML1;
+if($Type=='guest'){
+    $navBarLink='#';
+    $FullName = 'Guest';
+}
+else{
+    $navBarLink='profile.php';
+    $FullName = $FN." ".$LN;
+}
+
+$html1_2=<<<HTML1_2
+              <a class="navbar-brand" href=$navBarLink>Hello $FullName!</a>
           </div>
         </nav>
 
@@ -91,7 +105,7 @@ $html1=<<<HTML1
         <img src="img/dog3.jpg" width=20% height=20%>
               <h1>What Kind of Dog Person are You?</h1>
               <p>Looking to adopt but don't know what bread would best fit you?  Take our questionnaire to match your personality to that of all the lovely dogs in the shelter's database.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Take the Questionnaire</a></p>
+              <p><a class="btn btn-lg btn-primary" href="questionnaire.html" role="button">Take the Questionnaire</a></p>
             </div>
           </div>
         </div>
@@ -99,7 +113,7 @@ $html1=<<<HTML1
           <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-HTML1;
+HTML1_2;
 
     if(isset($_SESSION['type']) && $_SESSION['type']!='guest'){
     $html2=<<<HTML2
@@ -112,7 +126,7 @@ HTML2;
     $html2=<<<HTML2
               <h1>Still a Guest?</h1>
               <p>You can feel free to browse our database or take the questionnaire as a guest!  Unfortunately, you can't save your questionnaire results or reserve a pet without becoming a member first.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Create an Account</a></p>
+              <p><a class="btn btn-lg btn-primary" href="signup.html" role="button">Create an Account</a></p>
 HTML2;
     }
     $html3=<<<HTML3
@@ -172,5 +186,5 @@ HTML2;
 
 HTML3;
 
-echo $html1.$html2.$html3;
+echo $html1.$html1_2.$html2.$html3;
 ?>

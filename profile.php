@@ -85,6 +85,7 @@ $html1=<<<HTML1
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="main.php">Home</a>
+              <a class="navbar-brand" href="signout.php">Sign Out</a>
           </div>
         </nav>
 
@@ -105,6 +106,7 @@ $html1=<<<HTML1
             <br>
             <h2 align='left'>Name: $FN $LN</h2>
             <h2 align='left'>Email: $Email</h2>
+            <h2 align='left'>Account Type: $Type</h2>
 HTML1;
 
 if($Type=='user'){
@@ -134,7 +136,7 @@ HTML1_3;
 }else $html1_3="";
     
 
-}
+}else $html1_2=$html1_3="";
 
 
 $html2=<<<HTML2
