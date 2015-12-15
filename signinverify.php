@@ -6,13 +6,13 @@ session_start();
 $con = new mysqli('65.183.130.64','user1','F0n%3','testusers');
 $_SESSION['timeout']=time();
 
-if(isset($_POST['inputFN'])){
-    $FN = $_POST['inputFN'];
-    $_SESSION['inputFN']=$FN;
+if(isset($_POST['inputEmail'])){
+    $Email = $_POST['inputEmail'];
+    $_SESSION['inputFN']=$Email;
 }
-if(isset($_POST['inputLN'])){
-    $LN = $_POST['inputLN'];
-    $_SESSION['inputLN']=$LN;
+if(isset($_POST['inputPW'])){
+    $PW = $_POST['inputPW'];
+    $_SESSION['inputPW']=$PW;
 }
 
 if(isset($_POST['type'])){
@@ -20,7 +20,7 @@ if(isset($_POST['type'])){
     $_SESSION['type']=$type;
    if($type=='user') 
    {
-	$sql = "SELECT fn,ln FROM Users WHERE fn='$FN' AND ln='$LN'";
+	$sql = "SELECT fn,ln FROM Users WHERE fn='$Email' AND ln='$PW'";
 	$result= $con->query($sql);
         if($result->num_rows == 0)
 		{
@@ -31,7 +31,7 @@ if(isset($_POST['type'])){
 		}
         else
 		{
-			echo '<p>Logged In As: ', $FN, ' ',$LN,'</p>';
+			echo '<p>Logged In As: ', $Email,'</p>';
 			echo "<br>Account Type: User";
 			echo '<form action="main.php">
 					<button type="submit">Continue</button>
@@ -40,7 +40,7 @@ if(isset($_POST['type'])){
 	}
 	else if($type=='admin') 
 	{
-	$sql = "SELECT fn,ln FROM Admin WHERE fn='$FN' AND ln='$LN'";
+	$sql = "SELECT fn,ln FROM Admin WHERE fn='$Email' AND ln='$PW'";
 	$result= $con->query($sql);
         if($result->num_rows == 0)
 		{
@@ -51,7 +51,7 @@ if(isset($_POST['type'])){
 		}
         else
 		{
-			echo '<p>Logged In As: ', $FN, ' ',$LN,'</p>';
+			echo '<p>Logged In As: ', $Email,'</p>';
 			echo "<br>Account Type: Admin";
 			echo '<form action="main.php">
 					<button type="submit">Continue</button>
@@ -61,11 +61,7 @@ if(isset($_POST['type'])){
 }else{
     $type='guest';
     $_SESSION['type']=$type;
-	$FN = "";
-	$LN = "Guest";
-	$_SESSION['inputFN']=$FN;
-	$_SESSION['inputLN']=$LN;
-	echo '<p>Logged In As: ', $FN, ' ', $LN,'</p>';
+	echo '<p>Logged In As: ', $Email,'</p>';
 			echo "<br>Account Type: Guest";
 			echo '<form action="main.php">
 					<button type="submit">Continue</button>
