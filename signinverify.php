@@ -8,11 +8,11 @@ $_SESSION['timeout']=time();
 
 if(isset($_POST['inputEmail'])){
     $Email = $_POST['inputEmail'];
-    $_SESSION['inputFN']=$Email;
+    $_SESSION['email']=$Email;
 }
 if(isset($_POST['inputPW'])){
     $PW = $_POST['inputPW'];
-    $_SESSION['inputPW']=$PW;
+    $_SESSION['pw']=$PW;
 }
 
 if(isset($_POST['type'])){
@@ -33,6 +33,21 @@ if(isset($_POST['type'])){
 		}
         else
 		{
+			$result = $con->query("SELECT * FROM Users WHERE email = '$Email'");
+			foreach($result as $row){
+				$_SESSION['uID']=$row['uid'];
+				$_SESSION['fn']=$row['fn'];
+				$_SESSION['ln']=$row['ln'];
+				$_SESSION['address']=$row['address'];
+				$_SESSION['city']=$row['city'];
+				$_SESSION['state']=$row['state'];
+				$_SESSION['zip']=$row['zip'];
+				$_SESSION['phone']=$row['phone'];
+				$_SESSION['userAdapt']=$row['userAdapt'];
+				$_SESSION['userFriendly']=$row['userFriendly'];
+				$_SESSION['userNeeds']=$row['userNeeds'];
+				$_SESSION['userTrain']=$row['userTrain'];
+			}
 			echo '<p>Logged In As: ', $Email,'
 				  <br>Account Type: User</p>';
 			echo '<form action="main.php">
@@ -55,6 +70,12 @@ if(isset($_POST['type'])){
 		}
         else
 		{
+			$result = $con->query("SELECT * FROM Admin WHERE email='$Email'");
+			foreach($result as $row){
+			$_SESSION['aID']=$row['aid'];
+			$_SESSION['fn']=$row['fn'];
+			$_SESSION['ln']=$row['ln'];
+			}
 			echo '<p>Logged In As: ', $Email,'
 				  <br>Account Type: Admin</p>';
 			echo '<form action="main.php">
