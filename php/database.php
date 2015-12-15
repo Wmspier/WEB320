@@ -23,10 +23,10 @@ $html1=<<<HTML1
     <title>Fetch / Main</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -35,7 +35,7 @@ $html1=<<<HTML1
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="css/main.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
   </head>
   <!-- NAVBAR
 ================================================== -->
@@ -77,7 +77,7 @@ $html3=<<<HTML3
           <div class="container">
             <div class="carousel-caption">
               <h1>
-        <img src="fetchLogo.png" width=25% height=25%/></h1>
+        <img src="../img/fetchLogo.png" width=25% height=25%/></h1>
               <h2>Welcome to the Fetch Database!</h2>  <p>Scroll right to see all dogs currently available at the shelter.</p>
             </div>
           </div>

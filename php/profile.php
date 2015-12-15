@@ -55,10 +55,10 @@ $html1=<<<HTML1
     <title>Fetch / Main</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -67,7 +67,7 @@ $html1=<<<HTML1
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="css/main.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
   </head>
   <!-- NAVBAR
 ================================================== -->
@@ -160,7 +160,7 @@ $html2=<<<HTML2
           <div class="container">
             <div class="carousel-caption">
               <h1>Welcome to Fetch!
-        <img src="fetchLogo.png" width=15% height=15%/></h1>
+        <img src="../img/fetchLogo.png" width=15% height=15%/></h1>
               <p>Fetch is a test website intended to work in cooperation with a local animal shelter.  Dogs available for adoption will be viewable online through our database.  You can even reserve a pet and pick it up within 48 hours!</p>
               <p><a class="btn btn-lg btn-primary" href="database.php" role="button">Browse All Dogs in Shelter</a></p>
             </div>
@@ -170,9 +170,9 @@ $html2=<<<HTML2
           <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-        <img src="img/dog1.jpeg" width=25% height=25%>
-        <img src="img/dog2.jpg" width=30% height=30%>
-        <img src="img/dog3.jpg" width=20% height=20%>
+        <img src="../img/dog1.jpeg" width=25% height=25%>
+        <img src="../img/dog2.jpg" width=30% height=30%>
+        <img src="../img/dog3.jpg" width=20% height=20%>
               <h1>What Kind of Dog Person are You?</h1>
               <p>Looking to adopt but don't know what bread would best fit you?  Take our questionnaire to match your personality to that of all the lovely dogs in the shelter's database.</p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Take the Questionnaire</a></p>
@@ -202,7 +202,7 @@ $html4=<<<HTML4
           <div class="container">
             <div class="carousel-caption">
               <h1>
-        <img src="fetchLogo.png" width=25% height=25%/></h1>
+        <img src="../img/fetchLogo.png" width=25% height=25%/></h1>
               <h2>Welcome to the Fetch Database!</h2>  <p>Scroll right to see all dogs currently available at the shelter.</p>
             </div>
           </div>
@@ -213,9 +213,9 @@ $html4=<<<HTML4
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
 HTML4;
