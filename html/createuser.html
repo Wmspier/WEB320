@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+      
+    <!-- Custom styles for toggle buttons -->
+    <link href="css/toggleButton.css" rel="stylesheet">
+
+   
+  </head>
+  <body>
+      <div class="container" align="center">
+      <form class="form-signin" action="createuser.php" method="post">
+        <h1 class="form-signin-heading">You're Almost a Member!
+        <img src="fetchLogo.png" width=25% height=25%/></h1>
+        <h2 class="form-signin-heading">Please input the following information</h2>
+        <label for="firstname" class="sr-only">First Name</label>
+        <input name="firstname" type="text" id="firstname" class="form-control"placeholder="First Name" required autofocus>
+        <label for="lastname" class="sr-only">Last Name</label>
+        <input name="lastname" type="text" id="lastname" class="form-control" placeholder="Last Name" required >
+        <label for="address" class="sr-only">Address</label>
+        <input name="address" type="text" id="address" class="form-control" placeholder="Address" required >
+        <label for="city" class="sr-only">City</label>
+        <input name="city" type="text" id="city" class="form-control" placeholder="City" required >
+        <label for="state" class="sr-only">State</label>
+        <input name="state" type="text" id="state" class="form-control" placeholder="State" required >
+        <label for="zip" class="sr-only">Zipcode</label>
+        <input name="zip" type="text" id="zip" class="form-control" placeholder="Zipcode" required >
+        <label for="phone" class="sr-only">Phone</label>
+        <input name="phone" type="phone" id="state" class="form-control" placeholder="Phone" required >
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+      </form>
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- script src="ie10-viewport-bug-workaround.js"></script -->
+  </body>
+</html>
