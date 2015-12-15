@@ -14,12 +14,10 @@ if(isset($_POST['inputLN'])){
     $LN = $_POST['inputLN'];
     $_SESSION['inputLN']=$LN;
 }
-if($FN && $LN) echo "Hello ", $FN, " ", $LN, "\n";
 
-if(isset($_POST['group4'])){
-    $type = $_POST['group4'];
+if(isset($_POST['type'])){
+    $type = $_POST['type'];
     $_SESSION['type']=$type;
-    echo "<br>You are logged in as a ";
    if($type=='user') 
    {
 	$sql = "SELECT fn,ln FROM Users WHERE fn='$FN' AND ln='$LN'";
@@ -33,8 +31,11 @@ if(isset($_POST['group4'])){
 		}
         else
 		{
-			echo '<h1>Logged in</h1><p>Logged In: ', $FN, '</p>';
-			echo "Admin";
+			echo '<p>Logged In As: ', $FN, ' ',$LN,'</p>';
+			echo "<br>Account Type: User";
+			echo '<form action="main.php">
+					<button type="submit">Continue</button>
+				</form>';
 		}
 	}
 	else if($type=='admin') 
@@ -50,22 +51,32 @@ if(isset($_POST['group4'])){
 		}
         else
 		{
-			echo '<h1>Logged in</h1><p>Logged In: ', $FN, '</p>';
-			echo "Admin";
+			echo '<p>Logged In As: ', $FN, ' ',$LN,'</p>';
+			echo "<br>Account Type: Admin";
+			echo '<form action="main.php">
+					<button type="submit">Continue</button>
+				</form>';
 		}
 	}
-	else{
+}else{
     $type='guest';
     $_SESSION['type']=$type;
-    echo "<br>You are logged in as a Guest";
-	}
+	$FN = "";
+	$LN = "Guest";
+	$_SESSION['inputFN']=$FN;
+	$_SESSION['inputLN']=$LN;
+	echo '<p>Logged In As: ', $FN, ' ', $LN,'</p>';
+			echo "<br>Account Type: Guest";
+			echo '<form action="main.php">
+					<button type="submit">Continue</button>
+				</form>';
 }
 
 if(isset($_POST['remember-me'])){
-    echo "<br>Your sign-in info will be remembered for 30 days";
+    if($_SESSION['type'] != "guest") echo "<br>Your sign-in info will be remembered for 30 days";
     $inactive=2592000;
 }else{ 
-    echo "<br>Your sign-in info will not be remembered";
+    if($_SESSION['type'] != "guest") echo "<br>Your sign-in info will not be remembered";
     $inactive=3600;
 }
 

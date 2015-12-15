@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+if(isset($_SESSION['inputFN'])){
+    $FN = $_SESSION['inputFN'];
+}
+if(isset($_SESSION['inputLN'])){
+    $LN = $_SESSION['inputLN'];
+}
+
 $html1=<<<HTML1
     <!DOCTYPE html>
     <html lang="en">
@@ -29,7 +37,30 @@ $html1=<<<HTML1
     <!-- Custom styles for this template -->
     <link href="css/main.css" rel="stylesheet">
   </head>
+  <!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
 
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Hello $FN $LN!</a>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+     <br></br>
+    
+    
     <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -39,7 +70,6 @@ $html1=<<<HTML1
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
-    
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
