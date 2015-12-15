@@ -31,8 +31,8 @@ if(isset($_POST['type'])){
 		}
         else
 		{
-			echo '<p>Logged In As: ', $Email,'</p>';
-			echo "<br>Account Type: User";
+			echo '<p>Logged In As: ', $Email,'
+				  <br>Account Type: User</p>';
 			echo '<form action="main.php">
 					<button type="submit">Continue</button>
 				</form>';
@@ -51,8 +51,8 @@ if(isset($_POST['type'])){
 		}
         else
 		{
-			echo '<p>Logged In As: ', $Email,'</p>';
-			echo "<br>Account Type: Admin";
+			echo '<p>Logged In As: ', $Email,'
+				  <br>Account Type: Admin</p>';
 			echo '<form action="main.php">
 					<button type="submit">Continue</button>
 				</form>';
@@ -61,9 +61,9 @@ if(isset($_POST['type'])){
 }else{
     $type='guest';
     $_SESSION['type']=$type;
-	echo '<p>Logged In As: ', $Email,'</p>';
-			echo "<br>Account Type: Guest";
-			echo '<form action="main.php">
+	echo '<p>Logged In As: ', $Email,'
+		  <br>Account Type: Guest</p>';
+	echo '<form action="main.php">
 					<button type="submit">Continue</button>
 				</form>';
 }
