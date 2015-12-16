@@ -86,6 +86,11 @@ $html1=<<<HTML1
               </button>
               <a class="navbar-brand" href="main.php">Home</a>
               <a class="navbar-brand" href="signout.php">Sign Out</a>
+HTML1;
+if($Type=='admin'){
+    $navbar = '<a class="navbar-brand" href="../html/adminaddnew.html">Add New</a>';
+}else $navbar = "";
+$navbar.=<<<NAVBAR
           </div>
         </nav>
 
@@ -107,8 +112,8 @@ $html1=<<<HTML1
             <h2 align='left'>Name: $FN $LN</h2>
             <h2 align='left'>Email: $Email</h2>
             <h2 align='left'>Account Type: $Type</h2>
-HTML1;
-
+NAVBAR;
+            
 if($Type=='user'){
     
 $html1_2=<<<HTML1_2
@@ -220,5 +225,5 @@ $html4=<<<HTML4
 </html>
 HTML4;
 
-echo $html1.$html1_2.$html1_3.$html2.$html3.$html4;
+echo $html1.$navbar.$html1_2.$html1_3.$html2.$html3.$html4;
 ?>
