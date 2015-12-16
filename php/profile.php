@@ -88,7 +88,7 @@ $html1=<<<HTML1
               <a class="navbar-brand" href="signout.php">Sign Out</a>
 HTML1;
 if($Type=='admin'){
-    $navbar = '<a class="navbar-brand" href="../html/adminaddnew.html">Add New</a>';
+    $navbar = '<a class="navbar-brand" href="../html/adminaddnew.html">Create Admin</a>';
 }else $navbar = "";
 $navbar.=<<<NAVBAR
           </div>

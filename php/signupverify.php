@@ -19,12 +19,12 @@ $sql = "SELECT email FROM Users WHERE email='$Email'";
 $result= $con->query($sql);;
     if($result->num_rows == 0)
     {
-        header("Location:createuser.html");
+        header("Location:../html/createuser.html");
     }
     else
     {
         echo 'Sorry, that email is already in use.<br>';
-        echo '<form action="signup.html">
+        echo '<form action="../html/signup.html">
                 <button type="submit">Try Again</button>
             </form>';
     }

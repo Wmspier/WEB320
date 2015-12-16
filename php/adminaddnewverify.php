@@ -14,35 +14,20 @@ if(isset($_POST['inputPW'])){
     $PW = $_POST['inputPW'];
     $_SESSION['pw']=$PW;
 }
-if(isset($_POST['type'])){
-    $type = $_POST['type'];
-    $_SESSION['type']=$type;
+if(isset($_POST['fn'])){
+    $fn = $_POST['fn'];
+    $_SESSION['fn']=$fn;
+}
+if(isset($_POST['ln'])){
+    $ln = $_POST['ln'];
+    $_SESSION['ln']=$ln;
 }
 
-if($type=="user"){
- 
- $sql = "SELECT email FROM Users WHERE email='$Email'";
-$result= $con->query($sql);;
-    if($result->num_rows == 0)
-    {
-        echo 'success';
-    }
-    else
-    {
-        echo 'Sorry, that email is already in use.<br>';
-        echo '<form action="../html/adminaddnew.html">
-                <button type="submit">Try Again</button>
-            </form>';
-    }
- 
-    
-}else{
-    
 $sql = "SELECT email FROM Admin WHERE email='$Email'";
 $result= $con->query($sql);;
     if($result->num_rows == 0)
     {
-        echo 'success';
+       header("Location:createadmin.php");
     }
     else
     {
@@ -51,7 +36,5 @@ $result= $con->query($sql);;
                 <button type="submit">Try Again</button>
             </form>';
     }
-    
-}
 
 ?>

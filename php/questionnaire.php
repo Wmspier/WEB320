@@ -1,13 +1,9 @@
 <?php
 
-<<<<<<< .mine
 session_start();
 if(isset($_SESSION['uID'])){
 $userID = $_SESSION['uID'];
 }
-=======
-$Adapt=$Friendly=$Needs=$Train=0;
->>>>>>> .r23
 
 $Adapt = 0;
 $Friendly = 0;

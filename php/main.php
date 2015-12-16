@@ -126,7 +126,7 @@ HTML2;
     $html2=<<<HTML2
               <h1>Still a Guest?</h1>
               <p>You can feel free to browse our database or take the questionnaire as a guest!  Unfortunately, you can't save your questionnaire results or reserve a pet without becoming a member first.</p>
-              <p><a class="btn btn-lg btn-primary" href="signup.html" role="button">Create an Account</a></p>
+              <p><a class="btn btn-lg btn-primary" href="../html/signup.html" role="button">Create an Account</a></p>
 HTML2;
     }
     $html3=<<<HTML3

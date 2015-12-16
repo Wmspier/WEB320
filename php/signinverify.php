@@ -24,10 +24,10 @@ if(isset($_POST['type'])){
 	$sql2= "SELECT pass from AccountCredentials WHERE pass='$PW'";   
 	$result= $con->query($sql);
 	$result2= $con->query($sql2);
-		if($result->num_rows == 0 && $result2->num_rows == 0)
+		if($result->num_rows == 0 || $result2->num_rows == 0)
 		{
 			echo 'Invalid username or password<br>';
-			echo '<form action="signin.html">
+			echo '<form action="../html/signin.html">
 					<button type="submit">Try Again</button>
 				</form>';
 		}
@@ -59,19 +59,19 @@ if(isset($_POST['type'])){
 	{
 	$sql = "SELECT email FROM Admin WHERE email='$Email'";
 	$sql2= "SELECT pass from AccountCredentials WHERE pass='$PW'";
-	$result= $con->query($sql);
-	$result2= $con->query($sql2);
-        if($result->num_rows == 0 && $result2->num_rows == 0)
+	$result3= $con->query($sql);
+	$result4= $con->query($sql2);
+        if($result3->num_rows == 0 || $result4->num_rows == 0)
 		{
 			echo 'Invalid username or password<br>';
-			echo '<form action="signin.html">
+			echo '<form action="../html/signin.html">
 					<button type="submit">Try Again</button>
 				</form>';
 		}
         else
 		{
-			$result = $con->query("SELECT * FROM Admin WHERE email='$Email'");
-			foreach($result as $row){
+			$result3 = $con->query("SELECT * FROM Admin WHERE email='$Email'");
+			foreach($result3 as $row){
 			$_SESSION['aID']=$row['aid'];
 			$_SESSION['fn']=$row['fn'];
 			$_SESSION['ln']=$row['ln'];
@@ -108,7 +108,7 @@ if(isset($_SESSION['timeout'])){
     if($sessionLifeSpan>$inactive){
         $_SESSION=array();
         session_destroy();
-        header("Location:signin.html");
+        header("Location:../html/signin.html");
     }
 }
 

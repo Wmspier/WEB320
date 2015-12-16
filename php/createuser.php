@@ -1,11 +1,14 @@
 <?php
-if(isset($_POST['email']))
+
+session_start();
+
+if(isset($_SESSION['email']))
 {
-	$email = $_POST['email'];
+	$email = $_SESSION['email'];
 }
-if(isset($_POST['password']))
+if(isset($_SESSION['pw']))
 {
-	$pass = $_POST['password'];
+	$pass = $_SESSION['pw'];
 }
 if(isset($_POST['firstname']))
 {
@@ -46,30 +49,18 @@ foreach($result as $row){
 $acid++;
 
 $sql= "INSERT INTO AccountCredentials (acid,pass,perm,email) VALUES ('$acid', '$pass', 1, '$email')";
-if($con->query($sql) === TRUE)
-{
-	header("LOCATION:../html/sign.html");
-}
-/*else
-{
-	echo "fail<br>";
-}*/
 
-$sql= "SELECT uid FROM Users ORDER BY uid DESC LIMIT 1";
-$result= $con->query($sql);
+$sql2= "SELECT uid FROM Users ORDER BY uid DESC LIMIT 1";
+$result= $con->query($sql2);
 foreach($result as $row){
 	$uid=$row['uid'];
 }
 $uid++;
 
-$sql= "INSERT INTO Users (uid,fn,ln,address,city,state,zip,email,phone) VALUES ($uid, '$fn', '$ln', '$addr', '$city', '$state', '$zip', '$email', $phone)";
-if($con->query($sql) === TRUE)
+$sql2= "INSERT INTO Users (uid,fn,ln,address,city,state,zip,email,phone) VALUES ($uid, '$fn', '$ln', '$addr', '$city', '$state', '$zip', '$email', $phone)";
+if($con->query($sql2) == TRUE && $con->query($sql) == TRUE)
 {
-	header("LOCATION:../html/sign.html");
+	header("LOCATION:../html/signin.html");
 }
-/*else
-{
-	echo "fail<br>";
-}*/
 
 ?>
