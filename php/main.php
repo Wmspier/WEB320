@@ -154,7 +154,7 @@ HTML2;
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="../img/amandaCircle" width="140" height="140">
           <h2>Amanda Vincent</h2>
           <p></p>
         </div><!-- /.col-lg-4 -->
