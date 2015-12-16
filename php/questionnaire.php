@@ -1,6 +1,6 @@
 <?php
 
-$Adapt,$Friendly,$Needs,$Train;
+$Adapt=$Friendly=$Needs=$Train=0;
 
 if(isset($_POST['Q1'])){
     $Q1 = $_POST['Q1'];
