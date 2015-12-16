@@ -99,6 +99,13 @@ foreach($result as $dog){
             <div class="carousel-caption">
               <img src=$img width=25% height=25%/>
               <h1>Meet $name the $breed!</h1>
+              
+            <div class="container" style="width: 200px">
+                <form action="../html/reserve.html"">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Reserve!</button>
+                </form>
+            </div>
+            
             </div>
           </div>
         </div>
@@ -106,46 +113,6 @@ PAGE;
     $carouselpages.=$page;
     $iter++;
 }
-
-
-/*$carouselinnter=<<<CAROUSELINNER
-        <div class="item active">
-          <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Welcome to Fetch!
-        <img src="../img/fetchLogo.png" width=15% height=15%/></h1>
-              <p>Fetch is a test website intended to work in cooperation with a local animal shelter.  Dogs available for adoption will be viewable online through our database.  You can even reserve a pet and pick it up within 48 hours!</p>
-              <p><a class="btn btn-lg btn-primary" href="database.php" role="button">Browse All Dogs in Shelter</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-        <img src="../img/dog1.jpeg" width=25% height=25%>
-        <img src="../img/dog2.jpg" width=30% height=30%>
-        <img src="../img/dog3.jpg" width=20% height=20%>
-              <h1>What Kind of Dog Person are You?</h1>
-              <p>Looking to adopt but don't know what bread would best fit you?  Take our questionnaire to match your personality to that of all the lovely dogs in the shelter's database.</p>
-              <p><a class="btn btn-lg btn-primary" href="../html/questionnaire.html" role="button">Take the Questionnaire</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
-        <img src="../img/fetchLogo2.png" width=35% height=35%>
-              <h1>Already a Member?</h1>
-              <p>Any time after you have taken the questionnaire you can review your results or even retake it!  Your profile will display your last questionnaire results as well as any pets you have reserved to pick up.</p>
-              <p><a class="btn btn-lg btn-primary" href="profile.php" role="button">View Your Profile</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-CAROUSELINNER;*/
 $html2=<<<HTML2
 </div>
       <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
