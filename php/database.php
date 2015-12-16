@@ -97,8 +97,8 @@ foreach($result as $dog){
     <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Slide $iter">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Meet $name the $breed!
-              <img src=$img width=15% height=15%/></h1>
+              <img src=$img width=25% height=25%/>
+              <h1>Meet $name the $breed!</h1>
             </div>
           </div>
         </div>
