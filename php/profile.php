@@ -42,7 +42,7 @@ if(isset($_SESSION['userTrain'])){
 }
 
 
-$html1_3=$html1_2=$carouselnav=$carouselouter=$carouselpages=$html2="";
+$html1_3=$html1_2=$carouselnav=$carouselouter=$carouselpages=$html2=$html3="";
 $questionnaire="</div>";
 
 //This is hard coded to show results
