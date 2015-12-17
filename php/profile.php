@@ -40,6 +40,23 @@ if(isset($_SESSION['userNeeds'])){
 if(isset($_SESSION['userTrain'])){
     $Train = $_SESSION['userTrain'];
 }
+
+
+$alow = $Adapt - 1;
+$ahigh = $Adapt + 1;
+$flow = $Friendly - 1;
+$fhigh = $Friendly + 1;
+$nlow = $Needs - 1;
+$nhigh = $Needs + 1;
+$tlow = $Train - 1;
+$thigh = $Train + 1;
+
+$con = new mysqli('65.183.130.64','user1','F0n%3','testusers');
+
+$sql = "SELECT * FROM Dogs WHERE (adapt BETWEEN '$alow' AND '$ahigh') AND (friendly BETWEEN '$flow' AND '$fhigh') AND (needs BETWEEN '$nlow' AND '$nhigh') AND (train BETWEEN '$tlow' AND '$thigh')";
+$result = $con->query($sql);
+
+
 $html1=<<<HTML1
     <!DOCTYPE html>
     <html lang="en">
@@ -143,8 +160,57 @@ HTML1_3;
 
 }else $html1_2=$html1_3="";
 
+$html3 = <<< HTML3
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      </ol>
+HTML3;
 
-$html2=<<<HTML2
+if($Adapt>=0){
+$iter=0;
+$carouselnav="";
+foreach($result as $dog){
+    if($iter==0) $carouselnav.= '<li data-target="#myCarousel" data-slide-to="'.$iter.'" class="active"></li>';
+    else $carouselnav.= '<li data-target="#myCarousel" data-slide-to="'.$iter.'" class="inactive"></li>';
+    $iter++;
+}
+$carouselouter=<<<CAROUSELOUTER
+        </ol>
+        <div class="carousel-inner" role="listbox">
+CAROUSELOUTER;
+
+
+$iter=0;
+$carouselpages="";
+foreach($result as $dog){
+    if($iter==0) $active='<div class="item active">';
+    else $active='<div class="item">';
+    $name = $dog['name'];
+    $breed = $dog['breed'];
+    $img = $dog['image'];
+    $page="";
+    $page.=$active;
+    $page.=<<<PAGE
+    <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Slide $iter">
+          <div class="container">
+            <div class="carousel-caption">
+              <img src=$img width=25% height=25%/>
+              <h1>Meet $name the $breed!</h1>
+              
+            <div class="container" style="width: 200px">
+                <form action="../html/reserve.html"">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Reserve!</button>
+                </form>
+            </div>
+            
+            </div>
+          </div>
+        </div>
+PAGE;
+    $carouselpages.=$page;
+    $iter++;
+}
+$html4=<<<HTML4
           <p></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
@@ -192,14 +258,9 @@ $html2=<<<HTML2
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
-HTML2;
-
-$html3 = <<< HTML3
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      </ol>
-HTML3;
-
+HTML4;
+}
+else{
 $html4=<<<HTML4
       <div class="carousel-inner" role="listbox">
         <div class="item active">
@@ -224,6 +285,7 @@ $html4=<<<HTML4
   </body>
 </html>
 HTML4;
+}
 
 echo $html1.$navbar.$html1_2.$html1_3.$html2.$html3.$html4;
 ?>
