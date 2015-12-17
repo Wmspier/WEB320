@@ -56,7 +56,8 @@ $thigh = $Train + 1;
 
 $con = new mysqli('65.183.130.64','user1','F0n%3','testusers');
 
-$sql = "SELECT * FROM Dogs WHERE (adapt BETWEEN '$alow' AND '$ahigh') AND (friendly BETWEEN '$flow' AND '$fhigh') AND (needs BETWEEN '$nlow' AND '$nhigh') AND (train BETWEEN '$tlow' AND '$thigh')";
+//$sql = "SELECT * FROM Dogs WHERE (adapt BETWEEN '$alow' AND '$ahigh') AND (friendly BETWEEN '$flow' AND '$fhigh') AND (needs BETWEEN '$nlow' AND '$nhigh') AND (train BETWEEN '$tlow' AND '$thigh')";
+$sql = "SELECT * FROM Dogs";
 $result = $con->query($sql);
 
 
@@ -164,13 +165,8 @@ $questionnaire=<<<QUESTIONNAIRE
 </div>
 QUESTIONNAIRE;
     
-    
-    
-    
-    
-    
-
  $html1_3=<<<HTML1_3
+ <h2 align='left'>Here are your Matches!</h2>
         <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -234,20 +230,23 @@ $html2=<<<HTML2
     </div><!-- /.carousel -->
 HTML2;
 }
-$html4=<<<HTML4
+
+
+
+$html3=<<<HTML3
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="../js/jquery.min.js"><\/script>')</script>
     <script src="../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
-HTML4;
+HTML3;
 }
 
-echo $html1.$navbar.$html1_2.$questionnaire.$html1_3.$carouselnav.$carouselouter.$carouselpages.$html2;
+echo $html1.$navbar.$html1_2.$questionnaire.$html1_3.$carouselnav.$carouselouter.$carouselpages.$html2.$html3;
 ?>
