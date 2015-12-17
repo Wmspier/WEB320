@@ -45,6 +45,9 @@ if(isset($_SESSION['userTrain'])){
 $html1_3=$html1_2=$carouselnav=$carouselouter=$carouselpages=$html2="";
 $questionnaire="</div>";
 
+//This is hard coded to show results
+$Adapt=$Friendly=$Needs=$Train=3;
+
 $alow = $Adapt - 1;
 $ahigh = $Adapt + 1;
 $flow = $Friendly - 1;
@@ -56,8 +59,8 @@ $thigh = $Train + 1;
 
 $con = new mysqli('65.183.130.64','user1','F0n%3','testusers');
 
-//$sql = "SELECT * FROM Dogs WHERE (adapt BETWEEN '$alow' AND '$ahigh') AND (friendly BETWEEN '$flow' AND '$fhigh') AND (needs BETWEEN '$nlow' AND '$nhigh') AND (train BETWEEN '$tlow' AND '$thigh')";
-$sql = "SELECT * FROM Dogs";
+$sql = "SELECT * FROM Dogs WHERE (adapt BETWEEN '$alow' AND '$ahigh') AND (friendly BETWEEN '$flow' AND '$fhigh') AND (needs BETWEEN '$nlow' AND '$nhigh') AND (train BETWEEN '$tlow' AND '$thigh')";
+//$sql = "SELECT * FROM Dogs";
 $result = $con->query($sql);
 
 
