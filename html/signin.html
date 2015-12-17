@@ -45,11 +45,14 @@
           </label>
     <div class="toggle-btn-grp cssonly" align="center">
         <!-- div><input type="radio" value="guest" name="group4"checked="checked"/><label onclick="show()" class="toggle-btn">Guest</label></div -->
-        <div><input type="radio" value="user"  name="type"/><label onclick="" class="toggle-btn">User</label></div>
-        <div><input type="radio" value="admin" name="type"/><label onclick="" class="toggle-btn">Admin</label></div>
+        <div><input type="radio" required="required" value="user"  name="type"/><label onclick="" class="toggle-btn">User</label></div>
+        <div><input type="radio" required="required" value="admin" name="type"/><label onclick="" class="toggle-btn">Admin</label></div>
              
     </div>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+        <form class="form-signin" action="../php/signinverify.php" method="post">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Guest</button>
       </form>
 
 

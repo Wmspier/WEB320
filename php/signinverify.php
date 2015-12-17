@@ -88,6 +88,7 @@ if(isset($_POST['type'])){
     $_SESSION['type']=$type;
 	$_SESSION['fn']='Guest';
 	$_SESSION['ln']='';
+	$Email='Guest';
 	echo '<p>Logged In As: ', $Email,'
 		  <br>Account Type: Guest</p>';
 	echo '<form action="main.php">

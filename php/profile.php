@@ -42,6 +42,9 @@ if(isset($_SESSION['userTrain'])){
 }
 
 
+$html1_3=$html1_2=$carouselnav=$carouselouter=$carouselpages=$html2="";
+$questionnaire="</div>";
+
 $alow = $Adapt - 1;
 $ahigh = $Adapt + 1;
 $flow = $Friendly - 1;
@@ -141,32 +144,40 @@ $html1_2=<<<HTML1_2
             <h2 align='left'>Phone: $Phone</h2>
             <p></p>
         </div><!-- /.col-lg-4 -->
+    </div>
 HTML1_2;
 
 if($Adapt>=0){
-$html1_3=<<<HTML1_3
+$questionnaire=<<<QUESTIONNAIRE
+<div class="container marketing">
+      <div class="row">
         <div class="col-lg-4">
-          <img align='center' class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2 align='left'>Previous Questionnaire Results</h2>
+          <br>
+            <h2 align='left'>Questionnaire Results</h2>
             <h2 align='left'>Adaptability: $Adapt</h2>
             <h2 align='left'>Friendliness: $Friendly</h2>
             <h2 align='left'>Needs: $Needs</h2>
             <h2 align='left'>Trainability: $Train</h2>
             <p></p>
         </div><!-- /.col-lg-4 -->
-HTML1_3;
-}else $html1_3="";
+    </div>
+</div>
+QUESTIONNAIRE;
+    
+    
+    
+    
+    
     
 
-}else $html1_2=$html1_3="";
-
-$html3 = <<< HTML3
+ $html1_3=<<<HTML1_3
+        <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      </ol>
-HTML3;
+HTML1_3;
 
-if($Adapt>=0){
 $iter=0;
 $carouselnav="";
 foreach($result as $dog){
@@ -210,69 +221,20 @@ PAGE;
     $carouselpages.=$page;
     $iter++;
 }
-$html4=<<<HTML4
-          <p></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-    
-    
-    <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Welcome to Fetch!
-        <img src="../img/fetchLogo.png" width=15% height=15%/></h1>
-              <p>Fetch is a test website intended to work in cooperation with a local animal shelter.  Dogs available for adoption will be viewable online through our database.  You can even reserve a pet and pick it up within 48 hours!</p>
-              <p><a class="btn btn-lg btn-primary" href="database.php" role="button">Browse All Dogs in Shelter</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
-          <div class="container">
-            <div class="carousel-caption">
-        <img src="../img/dog1.jpeg" width=25% height=25%>
-        <img src="../img/dog2.jpg" width=30% height=30%>
-        <img src="../img/dog3.jpg" width=20% height=20%>
-              <h1>What Kind of Dog Person are You?</h1>
-              <p>Looking to adopt but don't know what bread would best fit you?  Take our questionnaire to match your personality to that of all the lovely dogs in the shelter's database.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Take the Questionnaire</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
-          <div class="container">
-            <div class="carousel-caption">
- <!-- Carousel
-    ================================================== -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <!-- Indicators -->
-HTML4;
-}
-else{
-$html4=<<<HTML4
-      <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>
-        <img src="../img/fetchLogo.png" width=25% height=25%/></h1>
-              <h2>Welcome to the Fetch Database!</h2>  <p>Scroll right to see all dogs currently available at the shelter.</p>
-            </div>
-          </div>
+$html2=<<<HTML2
+</div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div><!-- /.carousel -->
+HTML2;
+}
+$html4=<<<HTML4
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -287,5 +249,5 @@ $html4=<<<HTML4
 HTML4;
 }
 
-echo $html1.$navbar.$html1_2.$html1_3.$html2.$html3.$html4;
+echo $html1.$navbar.$html1_2.$questionnaire.$html1_3.$carouselnav.$carouselouter.$carouselpages.$html2;
 ?>

@@ -59,14 +59,16 @@ HTML1;
 if($Type=='guest'){
     $navBarLink='#';
     $FullName = 'Guest';
+    $LoginLink ='<a class="navbar-brand" href="../html/signin.html">Log In</a>';
 }
 else{
     $navBarLink='profile.php';
     $FullName = $FN." ".$LN;
+    $LoginLink="";
 }
-
 $html1_2=<<<HTML1_2
               <a class="navbar-brand" href=$navBarLink>Hello $FullName!</a>
+              $LoginLink
           </div>
         </nav>
 
